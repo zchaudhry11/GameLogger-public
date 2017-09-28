@@ -1,0 +1,30 @@
+﻿h4 {
+    text-align: center;
+    font-family: 'Baloo', cursive;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: -1px 0 black, 0 5px black, 1px 0 black, 0 -1px black;
+    color: white;
+}
+
+label {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
+    text-shadow: -1px 0 white, 0 3px white, 1px 0 white, 0 -1px white;
+    color: black;
+    line-height: 11px;
+}
+
+#wrap {
+    margin: 0 auto;
+}
+
+#editGameButton {
+    position: relative;
+    right: 9%;
+}
+
+input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+}

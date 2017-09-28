@@ -1,0 +1,150 @@
+﻿#backlogHeading {
+    text-align: center;
+    font-family: 'Baloo', cursive;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: -1px 0 black, 0 5px black, 1px 0 black, 0 -1px black;
+    color: white;
+}
+
+.tile {
+    margin: 8px;
+    background-color: transparent;
+    display: inline-block;
+    background-size: cover;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s ease-out;
+    box-shadow: 0px 30px 20px -17px rgba(0,0,0,0.44);
+    overflow: hidden;
+    color: white;
+    font-family: 'Baloo', cursive;
+}
+
+.tile img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transition: all 0.4s ease-out;
+}
+
+.tile .text {
+    padding: 30px;
+    position: relative;
+    margin-top: 25px;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+}
+
+.tile h1 {
+    font-weight: 300;
+    font-size: 200%;
+    margin: 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    transform: translateY(50px);
+}
+
+.tile h2 {
+    font-weight: 100;
+    font-size: 150%;
+    margin: 20px 0 0 0;
+    font-style: italic;
+    transform: translateX(200px);
+}
+
+.tile h3 {
+    font-weight: 300;
+    font-size: 150%;
+    margin: 20px 0 0 0;
+    line-height: 25px;
+    transform: translateX(-200px);
+}
+
+.tile h4 {
+    font-weight: 300;
+    font-size: 150%;
+    margin: 20px 0 0 0;
+    line-height: 25px;
+    transform: translateX(200px);
+}
+
+.tile button {
+    font-weight: 300;
+    margin: 20px 0 0 0;
+    line-height: 25px;
+    transform: translateY(50px);
+}
+
+.tile p {
+    font-weight: 300;
+    margin: 20px 0 0 0;
+    line-height: 25px;
+    transform: translateX(-200px);
+    transition-delay: 0.2s;
+}
+
+.animate-text {
+    opacity: 0;
+    transition: all 0.45s ease-in-out;
+}
+
+.tile:hover {
+    background-color: #6200EA;
+    box-shadow: 0px 35px 20px -17px rgba(0,0,0,0.64);
+    transform: scale(1.05);
+}
+
+.tile:hover img {
+    opacity: 0.25;
+}
+
+.tile:hover .animate-text {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.tile:hover span {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+@media (max-width: 1000px) {
+    .wrap {
+        flex-direction: column;
+        width: 400px;
+    }
+}
+
+#pageButtons {
+    text-align: center;
+}
+
+#pageButtons ul .btn-success {
+    color: white;
+    background-color: #63E2C6;
+    border: none;
+    border-radius: 10px 10px;
+}
+
+#pageButtons ul .btn-success:hover {
+    color: white;
+    background-color: #3FD1B0;
+    box-shadow: inset 0 0 10px #000000;
+}
+
+#pageButtons ul .btn-danger {
+    color: white;
+    background-color: #FA4B5F;
+    border: none;
+    border-radius: 10px 10px;
+}
+
+#pageButtons ul .btn-danger:hover {
+    color: white;
+    background-color: #F72941;
+    box-shadow: inset 0 0 10px #000000;
+}

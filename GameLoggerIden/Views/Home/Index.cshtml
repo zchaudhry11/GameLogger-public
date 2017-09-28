@@ -1,0 +1,50 @@
+﻿@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/js/home.js")"></script>
+}
+@{
+    <link href="@Url.Content("~/Content/css/home.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/animations.css")" rel="stylesheet" type="text/css" />
+
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    @{
+        if (User.Identity.IsAuthenticated)
+        {
+            <h3 class="animated fadeInUp" id="homeTitle">Welcome to GameLogger!</h3>
+            <h4 class="animated fadeInUp" style="animation-delay:1.1s;">Step 1. Add some games to your backlog.</h4>
+            <h4 class="animated fadeInUp" style="animation-delay:2.1s;">Step 2. Pick a game to play.</h4>
+            <h4 class="animated fadeInUp" style="animation-delay:3.1s;">Step 3. Stay on track with Google Calendar and text alerts.</h4>
+            <h4 class="animated fadeInUp" style="animation-delay:4.1s;">Step 4. Clear your backlog.</h4>
+            
+            <img class="animated fadeInUp" id="prinny" style="animation-delay:5.5s;" src="~/Content/img/prinny-game.png" height="200" width="200" />
+
+            <img class="animated bounceIn" id="firstSale" style="animation-delay:7.5s;" src="~/Content/img/50-sale.jpg" height="30" width="70" />
+            <img class="animated bounceIn" id="secondSale" style="animation-delay:8.5s;" src="~/Content/img/66-sale.jpg" height="30" width="70" />
+            <img class="animated bounceIn" id="thirdSale" style="animation-delay:9.5s;" src="~/Content/img/75-sale.jpg" height="30" width="70" />
+
+            <img class="animated slideInUp" id="gaben" style="animation-delay:10.5s;" src="~/Content/img/gaben-sm.png" height="415" width="300" />
+        }
+        else
+        {
+            <br /><br /><br />
+            <h1 class="animated fadeInDown" style="animation-delay: 0.2s">Do you buy too many games that you don't play?</h1>
+            <br /><br />
+            <h4 class="animated fadeInDown">
+                GameLogger is a new tool that exists to help you start finishing those new games that keep piling up.
+            </h4>
+            <h4 class="animated fadeInUp">Get started by registering for a new account or signing into an existing account.</h4>
+            <br /><br /><br /><br />
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="Account/Register" id="registerButton" class="btn btn-lg btn-success animated fadeInLeft" style="animation-delay: 1s">Register</a>
+                </div>
+                <div class="col-md-6">
+                    <a href="Account/Login" id="loginButton" class="btn btn-lg btn-primary animated fadeInRight" style="animation-delay: 1s">Log In</a>
+                </div>
+            </div>
+        }
+    }
+</div>

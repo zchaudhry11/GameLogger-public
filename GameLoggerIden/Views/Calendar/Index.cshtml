@@ -1,0 +1,16 @@
+﻿@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/js/calendar.js")"></script>
+}
+@{
+    <link href="@Url.Content("~/Content/animations.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/calendar.css")" rel="stylesheet" type="text/css" />
+
+    ViewBag.Title = "Calendar";
+}
+
+<div class="wrap">
+    <h4 class="floating">Your calendar has been updated. Have fun!</h4>
+
+    <a href="http://www.google.com/calendar" class="btn btn-success animated fadeInUp">View Calendar</a>
+</div>

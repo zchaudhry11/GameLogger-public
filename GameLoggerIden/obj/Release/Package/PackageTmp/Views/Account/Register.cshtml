@@ -1,0 +1,48 @@
+﻿@model GameLoggerIden.Models.RegisterViewModel
+@{
+    <link href="@Url.Content("~/Content/css/register.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+
+    ViewBag.Title = "Register";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 center-block">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h2 class="animated fadeInDown">Create a new account</h2>
+                <hr class="animated fadeInLeft" />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-group animated flipInX" style="width: 220%;">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group animated flipInX" style="animation-delay: 0.15s;width: 220%;">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group animated flipInX" style="animation-delay: 0.25s;width: 220%;">
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group animated fadeInUp" style="width: 56%;">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" id="registerButton" class="btn btn-lg btn-success" value="Register" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

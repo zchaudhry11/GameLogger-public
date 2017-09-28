@@ -1,0 +1,31 @@
+﻿.navbar-inverse {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-weight: bold;
+    background-color: #B388FF;
+    border-color: #6200EA;
+    box-shadow: 0px 7px 20px -10px rgba(0,0,0,0.75);
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    box-shadow: inset 0 0 10px #000000;
+    color: #00E676;
+    background-color: #B388FF;
+}
+
+.navbar-inverse .navbar-brand:hover {
+    box-shadow: inset 0 0 10px #000000;
+    color: #00E676;
+    background-color: #B388FF;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #651FFF;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #651FFF;
+}
+
+a:hover {
+    box-shadow: none;
+}

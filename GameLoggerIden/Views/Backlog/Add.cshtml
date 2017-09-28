@@ -1,0 +1,60 @@
+﻿@model GameLoggerIden.Models.UserBacklogEdit
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/js/editgames.js")"></script>
+}
+@{
+    <link href="@Url.Content("~/Content/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/editgames.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/animations.css")" rel="stylesheet" type="text/css" />
+
+    ViewBag.Title = "Edit Backlog";
+}
+
+<h4 class="floating">Add Game</h4>
+<hr class="animated slideInLeft" />
+
+<div class="col-md-offset-5">
+    @using (Html.BeginForm("edit"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <div class="ui-widget">
+                        <label class="animated flipInX" for="gameName">Games: </label> <br /><br />
+                        <input type="text" class="form-control animated flipInX" style="animation-delay: 0.15s;" id="gameName" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <div class="ui-widget">
+                        <label class="animated flipInX" for="gameName">Completed Game?</label> <br />
+                        <input class="animated flipInX" style="animation-delay: 0.15s;" type="checkbox" id="completed" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <div class="ui-widget">
+                        <label class="animated flipInX" for="gameName">Playtime (hours): </label> <br /><br />
+                        <input type="number" class="form-control animated flipInX" style="animation-delay: 0.15s;" id="playTime" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group animated fadeInUp" style="animation-delay: 0.15s;">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Update" class="btn btn-success" id="editGameButton" onclick="addGame()" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div id="results"></div>

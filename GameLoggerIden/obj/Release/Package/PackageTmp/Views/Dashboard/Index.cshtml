@@ -1,0 +1,42 @@
+﻿@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/js/dashboard.js")"></script>
+}
+@{
+    <link href="@Url.Content("~/Content/css/dashboard.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/animations.css")" rel="stylesheet" type="text/css" />
+    ViewBag.Title = "Dashboard";
+}
+<script type="text/javascript" src="@Url.Content("~/Scripts/highcharts.js")"></script>
+
+<h2 class="floating">Your Stats</h2>
+
+<div class="masonry">
+    <div class="item animated fadeInDown" style="animation-delay: 0.1s">
+        <h4 id="numBackloggedGames">Backlogged Games: --</h4>
+    </div>
+    <div class="item animated fadeInDown" style="animation-delay: 0.25s">
+        <h4 id="timeToFinish">It will take -- days to finish your backlog.</h4>
+    </div>
+    <div class="item animated fadeInDown" style="animation-delay: 0.4s">
+        <h4 id="completedGames">Completed Games: --</h4>
+    </div>
+    <div class="item animated fadeInDown" style="animation-delay: 0.65s">
+        <h4 id="mostPlayedGameText">Most Played Game: --</h4>
+    </div>
+    <div class="item animated fadeInDown" style="animation-delay: 0.8s">
+        <div id="percCompleted"></div>
+    </div>
+    <div class="item animated fadeInDown" style="animation-delay: 0.95s">
+        <h4 id="currPlaying">Currently Playing: --</h4>
+        <h4 id="currPlayingLength">Game Length: --</h4>
+        <h4 id="currPlayTime">Current Playtime: --</h4>
+        <h4 id="currPlayingPercCompleted">Percent Complete: --</h4>
+    </div>
+    <div class="item animated fadeInDown" style="animation-delay: 1.35s">
+        <div id="lengthBreakdown"></div>
+    </div>
+    <div class="item animated fadeInDown" style="animation-delay: 1.1s">
+        <div id="mostPlayed"></div>
+    </div>
+</div>

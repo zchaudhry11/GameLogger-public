@@ -1,0 +1,39 @@
+﻿@model GameLoggerIden.Models.Schedule
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap-toggle.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/js/schedule.js")"></script>
+}
+@{
+    <link href="@Url.Content("~/Content/bootstrap-toggle.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/schedule.css")" rel="stylesheet" type="text/css" />
+    
+    ViewBag.Title = "Schedule";
+}
+
+<h4 class="animated fadeInUp">What days are you free?</h4>
+<hr class="animated slideInLeft" />
+
+<form id="scheduleForm">
+    <div class="form-horizontal">
+        <table>
+            <tr>
+                <td class="animated fadeInUp" style="animation-delay: 0.1s;"><label>Monday</label><br /><div class="wrap"><input id="monday" checked data-toggle="toggle" data-on=" " data-off=" " data-onstyle="success" data-offstyle="danger" data-style="ios" data-size="mini" type="checkbox"></div></td>
+                <td class="animated fadeInUp" style="animation-delay: 0.2s;"><label>Tuesday</label><br /><div class="wrap"><input id="tuesday" checked data-toggle="toggle" data-on=" " data-off=" " data-onstyle="success" data-offstyle="danger" data-style="ios" data-size="mini" type="checkbox"></div></td>
+                <td class="animated fadeInUp" style="animation-delay: 0.3s;"><label>Wednesday</label><br /><div class="wrap" style="padding-left: 10px;"><input id="wednesday" checked data-toggle="toggle" data-on=" " data-off=" " data-onstyle="success" data-offstyle="danger" data-style="ios" data-size="mini" type="checkbox"></div></td>
+                <td class="animated fadeInUp" style="animation-delay: 0.4s;"><label>Thursday</label><br /><div class="wrap"><input id="thursday" checked data-toggle="toggle" data-on=" " data-off=" " data-onstyle="success" data-offstyle="danger" data-style="ios" data-size="mini" type="checkbox"></div></td>
+                <td class="animated fadeInUp" style="animation-delay: 0.5s;"><label>Friday</label><br /><div class="wrap"><input id="friday" checked data-toggle="toggle" data-on=" " data-off=" " data-onstyle="success" data-offstyle="danger" data-style="ios" data-size="mini" type="checkbox"></div></td>
+                <td class="animated fadeInUp" style="animation-delay: 0.6s;"><label>Saturday</label><br /><div class="wrap"><input id="saturday" checked data-toggle="toggle" data-on=" " data-off=" " data-onstyle="success" data-offstyle="danger" data-style="ios" data-size="mini" type="checkbox"></div></td>
+                <td class="animated fadeInUp" style="animation-delay: 0.7s;"><label>Sunday</label><br /><div class="wrap"><input id="sunday" checked data-toggle="toggle" data-on=" " data-off=" " data-onstyle="success" data-offstyle="danger" data-style="ios" data-size="mini" type="checkbox"></div></td>
+            </tr>
+        </table>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update" class="btn btn-success animated fadeInUp" onclick="updateSchedule()" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<h2 id="resultMessage"></h2>

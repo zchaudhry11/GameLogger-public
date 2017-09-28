@@ -1,0 +1,30 @@
+﻿@model GameLoggerIden.Models.Phone
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/js/phone.js")"></script>
+}
+@{
+    <link href="@Url.Content("~/Content/css/manage.css")" rel="stylesheet" type="text/css" />
+
+    ViewBag.Title = "SetPhoneNumber";
+}
+
+<h4 class="animated fadeInDown">Update your phone number to receive a text reminders!</h4>
+
+@using (Html.BeginForm("phone"))
+{
+    @Html.LabelFor(model => model.PhoneNumber)
+    <br /><br />
+    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", id = "phoneNum" } })
+    @Html.ValidationMessageFor(model => model.PhoneNumber)
+
+    <br /><br />
+
+    @Html.LabelFor(model => model.ReceiveTexts)
+    <br />
+    @Html.CheckBoxFor(model => model.ReceiveTexts, new { htmlAttributes = new { @class = "form-control", id = "receiveTexts" } })
+    <br /><br /><br />
+    <a href="#" class="btn btn-success animated fadeInUp" onclick="updatePhone()">Save</a>
+}
+
+<h4 id="results"></h4>

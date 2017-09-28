@@ -1,0 +1,111 @@
+﻿@model GameLoggerIden.Models.BackloggedGamePage
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/animatedModal.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/js/backlog.js")"></script>
+}
+@{
+    <link href="@Url.Content("~/Content/css/backlog.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/modal.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/animations.css")" rel="stylesheet" type="text/css" />
+    ViewBag.Title = "Index";
+}
+
+<h2 class="floating" id="backlogHeading">Your Backlog</h2>
+
+<!-- Game Tiles -->
+<div class="wrap">
+    @for (int i = 0; i < @Model.Games.ToList().Count; i++)
+    {
+        <div class="tile animated fadeInDown" style="animation-delay:@((0.1f * i).ToString() + "s")">
+            <img src='https://howlongtobeat.com/@Model.Games.ToList()[i].BoxArt' />
+            <div class="text">
+                <h1 class="animate-text">@Model.Games.ToList()[i].Name</h1>
+                <h2 class="animate-text">
+                    Main Story: @if (@Model.Games.ToList()[i].MainStoryLength > 0)
+                { @Model.Games.ToList()[i].MainStoryLength <text>Hours</text>}
+                else
+                {<text>--</text>}
+                </h2>
+                <h3 class="animate-text">
+                    Main+Extras: @if (@Model.Games.ToList()[i].MainExtraLength > 0)
+                { @Model.Games.ToList()[i].MainExtraLength <text>Hours</text>}
+                else
+                {<text>--</text>}
+                </h3>
+                <h4 class="animate-text">
+                    Completionist: @if (@Model.Games.ToList()[i].CompletionistLength > 0)
+                { @Model.Games.ToList()[i].CompletionistLength <text>Hours</text>}
+                else
+                {<text>--</text>}
+                </h4>
+                <p class="animate-text">Playtime: @(Math.Round((double)Model.Games.ToList()[i].PlayTime / 60, 2)) Hours</p>
+
+                <button class="btn btn-success animate-text md-trigger" data-modal="modal" onclick="displayGameInfoModal(&quot;@Model.Games.ToList()[i].Name&quot;,&quot;@Model.Games.ToList()[i].Id&quot;)">More Info</button>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Pagination Controls -->
+<div id="pageButtons" class="row">
+    @if (Model.Pager.LastPage > 1)
+    {
+        <ul class="pagination">
+            @if (Model.Pager.CurrPage > 1)
+            {
+            <li>
+                <a href="~/Backlog/Index?page=@(Model.Pager.CurrPage - 1)" class="btn btn-primary btn-danger"><span class="glyphicon glyphicon-arrow-left"></span></a>
+            </li>
+            }
+
+            @if (Model.Pager.CurrPage == 1)
+            {
+            <li>
+                <a href="~/Backlog/Index?page=@(Model.Pager.TotalPages)" class="btn btn-primary btn-danger"><span class="glyphicon glyphicon-arrow-left"></span></a>
+            </li>
+            }
+
+            @if (Model.Pager.CurrPage < Model.Pager.TotalPages)
+            {
+            <li>
+                <a href="~/Backlog/Index?page=@(Model.Pager.CurrPage + 1)" class="btn btn-primary btn-success"><span class="glyphicon glyphicon-arrow-right"></span></a>
+            </li>
+            }
+
+            @if (Model.Pager.CurrPage == Model.Pager.TotalPages)
+            {
+            <li>
+                <a href="~/Backlog/Index" class="btn btn-primary btn-success"><span class="glyphicon glyphicon-arrow-right"></span></a>
+            </li>
+            }
+        </ul>
+    }
+</div>
+
+<!-- Game Information Modal -->
+<div id="gameModal" class="overlay" onclick="closeNav()">
+    <a href="" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+        <h3 id="gameTitle"></h3>
+        <div style="margin: auto;">
+            <p id="gameDesc"></p>
+            <div class="row">
+                <div id="gameRating"></div>
+            </div>
+            <div class="row">
+                <div id="gameRelease"></div>
+            </div>
+            <div class="row">
+                <div id="gameScreenshots">
+                    <div id="screenshots"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="gameTrailer"></div>
+            </div>
+            <button class="btn btn-primary btn-primary" style="position: absolute; bottom: 0;left:15%;" onclick="playGame()"><span class="glyphicon glyphicon-ok"></span></button>
+            <button class="btn btn-primary btn-danger" style="position: absolute; bottom: 0;right:15%" onclick="completedGame()"><span class="glyphicon glyphicon-remove-sign"></span> </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameLogger - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-3.1.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/animate.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/nav.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="animation-duration:1s;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("GameLogger", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("View Backlog", "Index", "Backlog")</li>
+                    <li>@Html.ActionLink("Completed Games", "Completed", "Backlog")</li>
+                    <li>@Html.ActionLink("Edit Games", "Add", "Backlog")</li>
+                    <li>@Html.ActionLink("Stats", "Index", "Dashboard")</li>
+                    <li>@Html.ActionLink("Schedule", "Schedule", "Calendar")</li>
+                    <li><a style="background-image:url(../../Content/img/calendar.png);background-size: 50px 50px;background-repeat: no-repeat; box-shadow: none;" href="~/Calendar/Index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                    <li><a style="background-image:url(../../Content/img/steam.png);background-size: 50px 50px;background-repeat: no-repeat;box-shadow: none;" href="~/Steam/Index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

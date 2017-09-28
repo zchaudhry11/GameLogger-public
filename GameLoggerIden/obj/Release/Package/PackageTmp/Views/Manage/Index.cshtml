@@ -1,0 +1,36 @@
+﻿@model GameLoggerIden.Models.IndexViewModel
+@{
+    <link href="@Url.Content("~/Content/css/manage.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/animations.css")" rel="stylesheet" type="text/css" />
+
+    ViewBag.Title = "Manage";
+}
+
+<h4 class="floating">Manage Account</h4>
+<hr class="animated slideInLeft" />
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <dl class="dl-horizontal">
+        <dt class="animated flipInX">Password:</dt>
+        <dd class="animated flipInX">
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Change your password", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Create", "SetPassword")
+            }
+            ]
+        </dd>
+        <dt class="animated flipInX">External Logins:</dt>
+        <dd class="animated flipInX">
+            @Model.Logins.Count [
+            @Html.ActionLink("Manage", "ManageLogins") ]
+        </dd>
+    </dl>
+</div>
+
+<a href="~/Manage/SetPhoneNumber" class="btn btn-success animated fadeInUp">Update Phone</a>

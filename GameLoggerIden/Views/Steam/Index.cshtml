@@ -1,0 +1,41 @@
+﻿@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/js/steamprofile.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/js/steamgames.js")"></script>
+}
+@{
+    <link href="@Url.Content("~/Content/css/steam.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/animations.css")" rel="stylesheet" type="text/css" />
+
+    ViewBag.Title = "Steam Profile";
+}
+
+<h4 class="floating">Steam Profile</h4>
+
+<div class="wrap">
+    <div class="userprofile">
+        <div class="userdescription">
+            <h2 class="username animated fadeInUp"></h2>
+        </div>
+        <br />
+        <span class="profile1"></span>
+    </div>
+    <br /><br /><br />
+    <button class="btn btn-lg btn-success animated fadeInUp" onclick="getSteamGames()"><span class="glyphicon glyphicon-repeat"></span> Update Steam Library</button>
+
+    <div class="modal" id="loadingIndicator" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" style="text-align: center;">
+                    <p>
+                        Updating your Steam Library...
+                        <br /><br />
+                        <img src="@Url.Content("~/Content/gif/loading.gif")" height="100" width="100" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="result"></h2>
+</div>
