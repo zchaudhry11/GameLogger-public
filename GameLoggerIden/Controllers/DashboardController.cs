@@ -164,6 +164,11 @@ namespace GameLoggerIden.Controllers
 
             // Calculate percent of games completed and percent of current game completed
             percentageCompleted = Math.Round(((double)numCompleted / backloggedGames.Count) * 100, 1);
+			
+			if (currGameLength <= 0) 
+			{
+				currGameLength = 1;
+			}
 
             percentageCompletedCurrGame = Math.Round((double)((currPlaying.PlayTime) / (currGameLength * 60)) * 100, 1);
 
